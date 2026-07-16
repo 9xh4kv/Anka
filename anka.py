@@ -273,38 +273,38 @@ def checkPayload(scanType, url, cookies, data, wordlist, pattern, isPatternInver
                 for payload in wordlist:
                     encodedPayload = urllib.parse.quote(payload)
                     if cookiesRequestPattern(url, cookies, data, payload, pattern, isPatternInverted):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the encoded wordlist.{RESET}")
                 print(f"Trying the payloads without encoding...")
                 for payload in wordlist:
                     if cookiesRequestPattern(url, cookies, data, payload, pattern, isPatternInverted):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
             else:
                 for payload in wordlist:
                     encodedPayload = urllib.parse.quote(payload)
                     if cookiesRequestFilterSize(url, cookies, data, payload, filterSize):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the encoded wordlist.{RESET}")
                 print(f"Trying the payloads without encoding...")
                 for payload in wordlist:
                     if cookiesRequestFilterSize(url, cookies, data, payload, filterSize):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()                
             print(f"{RED}No valid payload found in the wordlist.{RESET}")   
         case "d":
             if pattern:
                 for payload in wordlist:
                     if dataRequestPattern(url, cookies, data, payload, pattern, isPatternInverted):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the wordlist.{RESET}")
             elif filterSize:
                 for payload in wordlist:
                     if dataRequestFilterSize(url, cookies, data, payload, filterSize):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the wordlist.{RESET}")
         case "u":
@@ -312,13 +312,13 @@ def checkPayload(scanType, url, cookies, data, wordlist, pattern, isPatternInver
             if pattern:
                 for payload in wordlist:
                     if urlRequestPattern(url, cookies, payload, pattern, isPatternInverted):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the wordlist.{RESET}")
             elif filterSize:
                 for payload in wordlist:
                     if urlRequestFilterSize(url, cookies, payload, filterSize):
-                        print(f"{GREEN}Found valid payload{RESET}: {payload}")
+                        print(f"{GREEN}Found valid payload: [{RESET}{payload}{GREEN}]{RESET}")
                         exit()
                 print(f"{RED}No valid payload found in the wordlist.{RESET}")            
 # ------------------------------------------------------------
