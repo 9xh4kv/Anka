@@ -110,7 +110,7 @@ else:
 if args.wordlist:
     try:
         with open(args.wordlist, "r") as f:
-            wordlist = [line.strip() for line in f if line.strip()]
+            wordlist = [line.rstrip('\r\n') for line in f if line.strip()]
     except FileNotFoundError:
         print(f"{RED}Wordlist file not found: {args.wordlist}{RESET}")
         exit()
